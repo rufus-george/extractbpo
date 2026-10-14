@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extract Bpo | Live transfers, call center and lead generation</title>
+<meta name="description" content="Extract Bpo is a call center and digital marketing company generating insurance and home improvement leads through outbound calling, live transfers, and Meta and Facebook ads.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F4F7FB;
+  --ink: #0D1119;
+  --ink-soft: #4B5666;
+  --line: #D5DDE8;
+  --deep: #0D1119;
+  --deep-2: #151D2C;
+  --signal: #0A6CFF;
+  --signal-dark: #0553C9;
+  --cyan: #00D5FF;
+  --white: #FFFFFF;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+
+.hero :focus-visible, .contact :focus-visible { outline-color: var(--cyan); }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(244,247,251,.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; text-decoration: none; }
+.brand img { width: 40px; height: 40px; display: block; }
+.brand span { color: var(--signal-dark); }
+nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; font-weight: 500; color: var(--ink-soft); }
+nav a:hover { color: var(--ink); }
+.btn {
+  display: inline-block; font-family: var(--body); font-weight: 600; font-size: 1rem;
+  padding: 12px 22px; border-radius: 8px; text-decoration: none; border: 2px solid transparent; cursor: pointer;
+}
+.btn-primary { background: var(--signal); color: #fff; }
+.btn-primary:hover { background: #2A82FF; }
+.btn-ghost { border-color: rgba(255,255,255,.35); color: var(--white); }
+.btn-ghost:hover { border-color: var(--white); }
+.header-cta { padding: 9px 18px; }
+
+/* Hero */
+.hero { background: var(--deep); color: var(--white); padding: 88px 0 96px; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.hero h1 {
+  font-family: var(--display); font-weight: 800; font-size: clamp(2.5rem, 5.4vw, 4.2rem);
+  line-height: 1.02; letter-spacing: -.035em; margin: 0 0 22px;
+}
+.hero p.lead { font-size: 1.2rem; color: #B8C4D6; max-width: 34em; margin: 0 0 32px; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Call flow (the one memorable element) */
+.flow {
+  background: var(--deep-2); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 28px 26px 24px;
+}
+.flow-title { font-size: .95rem; color: #94A3BA; margin: 0 0 22px; }
+.flow-track { position: relative; display: grid; gap: 0; }
+.flow-track::before {
+  content: ""; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px;
+  background: rgba(255,255,255,.2);
+}
+.pulse {
+  position: absolute; left: 16px; top: 22px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--cyan); box-shadow: 0 0 0 6px rgba(0,213,255,.22), 0 0 18px rgba(0,213,255,.6);
+  animation: travel 5.5s ease-in-out infinite;
+}
+@keyframes travel {
+  0% { top: 22px; opacity: 1; }
+  80% { top: calc(100% - 34px); opacity: 1; }
+  100% { top: calc(100% - 34px); opacity: 1; }
+}
+.step { position: relative; display: flex; gap: 18px; align-items: flex-start; padding: 12px 0; }
+.dot {
+  flex: none; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--deep); border: 2px solid rgba(255,255,255,.3);
+  display: grid; place-items: center; z-index: 1;
+}
+.dot svg { width: 20px; height: 20px; stroke: var(--white); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.step b { display: block; font-family: var(--display); font-size: 1.1rem; }
+.step small { color: #94A3BA; font-size: .95rem; line-height: 1.4; display: block; }
+.step.live .dot { background: var(--signal); border-color: var(--cyan); box-shadow: 0 0 14px rgba(0,213,255,.45); }
+.step.live .dot svg { stroke: #fff; }
+.live-tag { display: inline-block; margin-left: 8px; font-size: .78rem; font-weight: 600; background: rgba(0,213,255,.14); color: #7FE9FF; padding: 2px 9px; border-radius: 99px; vertical-align: 2px; }
+
+/* Sections */
+section { padding: 88px 0; }
+.section-head { max-width: 40em; margin-bottom: 44px; }
+h2 {
+  font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  line-height: 1.08; letter-spacing: -.03em; margin: 0 0 14px;
+}
+.section-head p { color: var(--ink-soft); margin: 0; font-size: 1.1rem; }
+
+/* Services: one wide list, not identical cards */
+.services { border-top: 2px solid var(--ink); }
+.service {
+  display: grid; grid-template-columns: 260px 1fr; gap: 40px;
+  padding: 34px 0; border-bottom: 1px solid var(--line);
+}
+.service h3 { font-family: var(--display); font-size: 1.5rem; letter-spacing: -.02em; margin: 0; line-height: 1.15; }
+.service p { margin: 0 0 12px; color: var(--ink-soft); max-width: 42em; }
+.service ul { margin: 0; padding-left: 1.1em; max-width: 42em; }
+.service li { margin: 4px 0; }
+.service li::marker { color: var(--signal-dark); }
+
+/* Process */
+.process { background: var(--white); border-block: 1px solid var(--line); }
+.steps { counter-reset: s; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; list-style: none; margin: 0; padding: 0; }
+.steps li { counter-increment: s; position: relative; padding-top: 18px; border-top: 3px solid var(--deep); }
+.steps li::before {
+  content: counter(s); font-family: var(--display); font-weight: 800; font-size: 2.2rem; color: var(--signal-dark);
+  display: block; line-height: 1; margin-bottom: 10px;
+}
+.steps h3 { font-family: var(--display); font-size: 1.2rem; margin: 0 0 6px; letter-spacing: -.01em; }
+.steps p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+
+/* Who it's for */
+.fit { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.fit p { color: var(--ink-soft); margin: 0 0 14px; }
+.checks { list-style: none; padding: 0; margin: 0; }
+.checks li { padding: 14px 0 14px 34px; border-bottom: 1px solid var(--line); position: relative; }
+.checks li::before {
+  content: ""; position: absolute; left: 4px; top: 21px; width: 14px; height: 8px;
+  border-left: 3px solid var(--signal-dark); border-bottom: 3px solid var(--signal-dark); transform: rotate(-45deg);
+}
+
+/* Contact */
+.contact { background: var(--deep); color: var(--white); }
+.contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.contact h2 { color: var(--white); }
+.contact p { color: #B8C4D6; }
+.contact-lines { list-style: none; padding: 0; margin: 28px 0 0; }
+.contact-lines li { margin: 10px 0; color: #B8C4D6; }
+.contact-lines a { color: var(--white); font-weight: 600; }
+.contact-lines a:hover { color: var(--cyan); }
+form { background: var(--white); color: var(--ink); border-radius: 16px; padding: 28px; display: grid; gap: 16px; }
+label { font-weight: 600; font-size: .95rem; display: grid; gap: 6px; }
+input, select, textarea {
+  font: inherit; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); width: 100%;
+}
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--signal); outline-offset: 1px; border-color: var(--ink); }
+textarea { min-height: 110px; resize: vertical; }
+.form-note { font-size: .88rem; color: var(--ink-soft); margin: 0; }
+
+footer { padding: 28px 0; font-size: .95rem; color: var(--ink-soft); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav { display: none; }
+  .hero { padding: 56px 0 64px; }
+  .hero .wrap, .fit, .contact .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .service { grid-template-columns: 1fr; gap: 12px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  section { padding: 64px 0; }
+}
+@media (max-width: 520px) {
+  .steps { grid-template-columns: 1fr; }
+  .site-header .wrap { height: 58px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pulse { animation: none; top: calc(100% - 34px); }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="logo.png" alt="" width="40" height="40">Extract<span>Bpo</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#fit">Who we work with</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary header-cta" href="#contact">Get leads</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Leads that arrive as live phone calls.</h1>
+        <p class="lead">Extract Bpo is a call center and digital marketing company. We generate insurance and home improvement leads, speak to the people who respond, and transfer interested callers straight to your team.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Request a call</a>
+          <a class="btn btn-ghost" href="#services">See what we do</a>
+        </div>
+      </div>
+
+      <div class="flow" role="img" aria-label="Diagram: a person sees an ad, our agents call and qualify them, then the call is transferred live to your team.">
+        <p class="flow-title">How one lead reaches you</p>
+        <div class="flow-track">
+          <span class="pulse" aria-hidden="true"></span>
+          <div class="step">
+            <div class="dot"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></div>
+            <div><b>Person responds to an ad</b><small>Facebook and Meta ads reach people looking for your service.</small></div>
+          </div>
+          <div class="step">
+            <div class="dot"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+            <div><b>Our agents call and qualify</b><small>We confirm interest and basic details on the phone.</small></div>
+          </div>
+          <div class="step live">
+            <div class="dot"><svg viewBox="0 0 24 24"><path d="M4 12h13M13 6l6 6-6 6"/></svg></div>
+            <div><b>Live transfer to you<span class="live-tag">on the line now</span></b><small>The caller is connected to your sales team while they're still interested.</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Three ways we bring you customers</h2>
+        <p>Use one, or combine them. Each one is run by our own team.</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h3>Live transfers</h3>
+          <div>
+            <p>Our agents speak with the person first, then connect them to your team on the same call.</p>
+            <ul>
+              <li>Callers are screened before they reach you</li>
+              <li>Your team talks to people who just said yes</li>
+              <li>Scripts written around your offer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <h3>Outbound and inbound calling</h3>
+          <div>
+            <p>Trained call center agents handle the conversations your team doesn't have time for.</p>
+            <ul>
+              <li>Lead follow-up and appointment setting</li>
+              <li>Qualification calls using your criteria</li>
+              <li>Customer call handling</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <h3>Social media lead generation</h3>
+          <div>
+            <p>We run Facebook and Meta ad campaigns built to bring in people ready to talk.</p>
+            <ul>
+              <li>Ad creative, targeting, and lead forms</li>
+              <li>Campaign tracking and adjustments</li>
+              <li>Leads passed straight to our call team</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How working with us goes</h2>
+        <p>A simple path from first conversation to leads in your phone.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Tell us your offer</h3><p>Your service, your area, and what a good customer looks like.</p></li>
+        <li><h3>We set up campaigns and scripts</h3><p>Ads go live and our agents are briefed on your offer.</p></li>
+        <li><h3>We generate and call leads</h3><p>People respond to ads, and our agents speak with them.</p></li>
+        <li><h3>You take the transfer</h3><p>Qualified callers are connected to your team live.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="fit">
+    <div class="wrap fit">
+      <div>
+        <h2>Insurance and home improvement leads</h2>
+        <p>We focus on two industries where customers are won on the phone. If you have a sales team ready to answer, we can keep your day full of people who want to talk.</p>
+        <p>Tell us what you sell and where, and we'll tell you honestly whether our approach fits.</p>
+      </div>
+      <ul class="checks">
+        <li>Insurance agencies and sales teams</li>
+        <li>Home improvement contractors and companies</li>
+        <li>Roofing, windows, siding, solar and similar home services</li>
+        <li>Businesses with a team ready to take live transfers</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div>
+        <h2>Tell us what you need</h2>
+        <p>Send a few details and we'll call you back to talk through how we'd generate leads for your business.</p>
+        <ul class="contact-lines">
+          <li>Phone: <a href="tel:+923465342005">+92 346 534 2005</a></li>
+          <li>WhatsApp: <a href="https://wa.me/923465342005" target="_blank" rel="noopener">+92 346 534 2005</a></li>
+          <li>Email: <a href="mailto:rufusgeo@gmail.com">rufusgeo@gmail.com</a></li>
+          <li>Microsoft Teams: <a href="https://teams.live.com/l/invite/FEApG92SEMcT8JeLw?v=g1" target="_blank" rel="noopener">Join a meeting with us</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/company/extractbpo" target="_blank" rel="noopener">Extract Bpo on LinkedIn</a></li>
+          <li>Office: Main Markaz, Gulshanabad, Ayala Road, Rawalpindi, Pakistan</li>
+        </ul>
+      </div>
+
+      <form action="https://formspree.io/f/xaeqpvlv" method="POST">
+        <label>Your name
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>Company
+          <input type="text" name="company" autocomplete="organization">
+        </label>
+        <label>Phone number
+          <input type="tel" name="phone" autocomplete="tel" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>What are you interested in?
+          <select name="interest">
+            <option>Live transfers</option>
+            <option>Outbound or inbound calling</option>
+            <option>Facebook and Meta ad lead generation</option>
+            <option>More than one of these</option>
+          </select>
+        </label>
+        <label>Your industry
+          <select name="industry">
+            <option>Insurance</option>
+            <option>Home improvement</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Tell us about your business
+          <textarea name="message"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Request a call back</button>
+        <p class="form-note">We use your details only to contact you about your enquiry.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Extract Bpo. All rights reserved.</span>
+    <span><a href="https://linkedin.com/company/extractbpo" target="_blank" rel="noopener">LinkedIn</a> · Rawalpindi, Pakistan</span>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
